@@ -1,4 +1,7 @@
 # LISTS OF LISTS
+```Results should look like this:</br>
+histogram = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
+```
 
 # READ from this FILE
 # file = open("../words.txt")
@@ -47,3 +50,14 @@ def list_of_lists(dictionary):
 
 if __name__ == '__main__':
     list_of_lists(histogram(get_word_list()))
+
+# Another option?
+for word in word_list:
+    found = False
+    for inner_list in list:
+        if word == inner_list[0]:
+            inner_list[1] += 1
+            found = True
+            break
+        if not found:
+            list.append([word,1])

@@ -19,5 +19,7 @@ def histogram(list):
 
     print(dict)
 
+
+
 if __name__ =='__main__':
     histogram("/..words.txt")

@@ -38,7 +38,7 @@ def histogram(list):
 
 
 def frequency(word, dictionary):
-    print(word, dictionary[word])
+    print(word, list[word])
 
 if __name__ =='__main__':
     frequency('narwhals', histogram(get_word_list()))

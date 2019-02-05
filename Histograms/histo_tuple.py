@@ -1,4 +1,8 @@
 # TUPLES DICTIONARY
+```
+Tuple result should look like this:</br>
+histogram = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
+```
 
 # READ from this FILE
 # file = open("../words.txt")
@@ -37,13 +41,26 @@ def histogram(list):
     return(dict)
 
 
-def histo_tuple(dictionary):
+def histo_tuple(list):
     tupple_list = []
-    for thing in dictionary:
-        entry = (thing, dictionary[thing])
+    for thing in list:
+        entry = (thing, list[thing])
         tupple_list.append(entry)
     print(tupple_list)
 
 
 if __name__ =='__main__':
     histo_tuple(histogram(get_word_list()))
+
+
+# Another option?
+for word in word_list:
+    found = False
+    for inner_tuple in list:
+        if word == inner_tuple[0]:
+            count = inner_tuple[1] + 1
+            list.remove(inner_tuple)
+            list.append((word,count))
+            break
+        if not found:
+            list.append([word,1])
