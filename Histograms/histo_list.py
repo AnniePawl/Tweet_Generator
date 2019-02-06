@@ -47,7 +47,6 @@ def list_of_lists(dictionary):
         lol.append(entry)
     print(lol)
 
-
 if __name__ == '__main__':
     list_of_lists(histogram(get_word_list()))
 
