@@ -1,14 +1,14 @@
-# TUPLES DICTIONARY
-```
-Tuple result should look like this:</br>
-histogram = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)]
-```
+# LISTS OF LISTS
+"""
+Results should look like this:</br>
+histogram = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
+"""
 
 # READ from this FILE
 # file = open("../words.txt")
 
 # READ FROM THIS FILE
-def get_word_list(file_name = '../words.txt'):
+def get_word_list(file_name = '../sample_text.txt'):
     '''Gets words, gets rid of nonsense'''
     file = open(file_name,'r')
     read_words = file.readlines()
@@ -20,47 +20,28 @@ def get_word_list(file_name = '../words.txt'):
         for word in split_line:
             if(word.lower() != ""):
                 words.append(word.lower().strip("(),!."""))
-    # print(words)
 
     return words
 
 
-# HISTOGRAM FUNCTION
-def histogram(list):
-    '''
-    Returns unique values and the
-    number of occurances of each
-    '''
-    dict = {}
-    for word in list:
-        if word not in dict:
-            dict[word] = 1
-        else:
-            dict[word] += 1
+def list_of_tuples_hist(list_of_words):
+    lot = []
 
-    return(dict)
+    for word in list_of_words:
+        word_found = False
+        for baby_tuple in lot:
+            if baby_tuple[0] == word:
+                current_count = baby_tuple[1]
+                lot.remove(baby_tuple)
+                lot.append((word, current_count + 1))
+                word_found = True
 
+        if not word_found:
+            lot.append((word, 1))
 
-def histo_tuple(list):
-    tupple_list = []
-    for thing in list:
-        entry = (thing, list[thing])
-        tupple_list.append(entry)
-    print(tupple_list)
+    print(lot)
+    return lot
 
 
-if __name__ =='__main__':
-    histo_tuple(histogram(get_word_list()))
-
-
-# Another option?
-for word in word_list:
-    found = False
-    for inner_tuple in list:
-        if word == inner_tuple[0]:
-            count = inner_tuple[1] + 1
-            list.remove(inner_tuple)
-            list.append((word,count))
-            break
-        if not found:
-            list.append([word,1])
+if __name__ == '__main__':
+    list_of_tuples_hist(get_word_list())

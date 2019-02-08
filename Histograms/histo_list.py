@@ -1,13 +1,14 @@
 # LISTS OF LISTS
-```Results should look like this:</br>
+"""
+Results should look like this:</br>
 histogram = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
-```
+"""
 
 # READ from this FILE
 # file = open("../words.txt")
 
 # READ FROM THIS FILE
-def get_word_list(file_name = '../words.txt'):
+def get_word_list(file_name = '../sample_text.txt'):
     '''Gets words, gets rid of nonsense'''
     file = open(file_name,'r')
     read_words = file.readlines()
@@ -24,39 +25,23 @@ def get_word_list(file_name = '../words.txt'):
     return words
 
 
-# HISTOGRAM FUNCTION
-def histogram(list):
-    '''
-    Returns unique values and the
-    number of occurances of each
-    '''
-    dict = {}
-    for word in list:
-        if word not in dict:
-            dict[word] = 1
-        else:
-            dict[word] += 1
-
-    return(dict)
-
-
-def list_of_lists(dictionary):
+def list_of_lists_hist(list_of_words):
     lol = []
-    for thing in dictionary:
-        entry = [thing, dictionary[thing]]
-        lol.append(entry)
+
+    for word in list_of_words:
+        word_found = False
+        for baby_list in lol:
+            if baby_list[0] == word:
+                print("HERE")
+                baby_list[1] += 1
+                word_found = True
+
+        if not word_found:
+            lol.append([word, 1])
+
     print(lol)
+    return lol
+
 
 if __name__ == '__main__':
-    list_of_lists(histogram(get_word_list()))
-
-# Another option?
-for word in word_list:
-    found = False
-    for inner_list in list:
-        if word == inner_list[0]:
-            inner_list[1] += 1
-            found = True
-            break
-        if not found:
-            list.append([word,1])
+    list_of_lists_hist(get_word_list())
