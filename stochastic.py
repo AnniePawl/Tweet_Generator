@@ -58,3 +58,16 @@ def test(prob_dict, num_generations=100):
     print("COMPARISON: %s NUM TRIALS" % num_generations)
     print(prob_dict)
     print(gen_prob)
+
+
+if __name__ == '__main__':
+    phrase = "one fish two fish red fish blue fish"
+    phrase_list = phrase.split()
+    true_hist = histogram(phrase_list)
+    prob_dict = probability_dict(true_hist)
+    test(prob_dict, 100)
+    # The more iterations, the more accurate
+    # test(prob_dict, 1000)
+    # test(prob_dict, 10000)
+    # test(prob_dict, 100000)
+    # test(prob_dict, 1000000)
