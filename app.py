@@ -1,7 +1,7 @@
-# FLASK QUICKSTART
+
 from flask import Flask
 from flask import render_template
-# import dictionary_words
+
 
 # Instance of Flask class
 app = Flask(__name__)
