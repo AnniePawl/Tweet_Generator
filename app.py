@@ -1,7 +1,7 @@
 # FLASK QUICKSTART
 from flask import Flask
 from flask import render_template
-import dictionary_words
+# import dictionary_words
 
 # Instance of Flask class
 app = Flask(__name__)
@@ -11,6 +11,4 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/testing')
-def tweets():
-    r
+# @app.route('/testing')

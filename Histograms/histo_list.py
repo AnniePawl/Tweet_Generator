@@ -39,6 +39,8 @@ def list_of_lists_hist(list_of_words):
     print(lol)
     return lol
 
+def histo_storage(self, file):
+    '''writes results to file'''
 
 if __name__ == '__main__':
     list_of_lists_hist(get_word_list())
