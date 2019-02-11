@@ -1,10 +1,11 @@
 # FREQUENCY HISTOGRAM
+# Returns the number of times that a specified word appears in a file
 
-# READ from this FILE
-# file = open("../words.txt")
+# Results should look like: 'narwhal 5'
 
 # READ FROM THIS FILE
-def get_word_list(file_name = '../words.txt'):
+# file = open("../sample_text.txt")
+def get_word_list(file_name = '../sample_text.txt'):
     '''Gets words, gets rid of nonsense'''
     file = open(file_name,'r')
     read_words = file.readlines()
@@ -16,8 +17,8 @@ def get_word_list(file_name = '../words.txt'):
         for word in split_line:
             if(word.lower() != ""):
                 words.append(word.lower().strip("(),!."""))
-    # print(words)
 
+    # print(words)
     return words
 
 
@@ -36,9 +37,16 @@ def histogram(list):
 
     return(dict)
 
-
-def frequency(word, dictionary):
+# FREQUENCY FUNCTION
+def frequency(word, list):
+    '''
+    Returns the number of times
+    a specified word appears in
+    a file '''
+    
     print(word, list[word])
 
 if __name__ =='__main__':
-    frequency('narwhals', histogram(get_word_list()))
+    frequency('narwhal', histogram(get_word_list()))
+    frequency('and', histogram(get_word_list()))
+    frequency('white', histogram(get_word_list()))

@@ -1,13 +1,11 @@
 # LISTS OF LISTS
-"""
-Results should look like this:</br>
-histogram = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
-"""
+# Two-dimensional arrays
 
-# READ from this FILE
-# file = open("../words.txt")
+# Results should look like this:
+''' histogram = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]] '''
 
 # READ FROM THIS FILE
+# file = open("../sample_text.txt")
 def get_word_list(file_name = '../sample_text.txt'):
     '''Gets words, gets rid of nonsense'''
     file = open(file_name,'r')
@@ -20,11 +18,10 @@ def get_word_list(file_name = '../sample_text.txt'):
         for word in split_line:
             if(word.lower() != ""):
                 words.append(word.lower().strip("(),!."""))
-    # print(words)
 
     return words
 
-
+# LIST OF LISTS HISTOGRAM
 def list_of_lists_hist(list_of_words):
     lol = []
 
@@ -32,7 +29,7 @@ def list_of_lists_hist(list_of_words):
         word_found = False
         for baby_list in lol:
             if baby_list[0] == word:
-                print("HERE")
+                # print("here")
                 baby_list[1] += 1
                 word_found = True
 

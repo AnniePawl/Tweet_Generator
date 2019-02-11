@@ -1,7 +1,11 @@
 # DICTIONARY HISTOGRAM
-# Something is wrong?
+# Key-value pairs, unordered, changeable, indexed
+
+# Results should look like this:
+ ''' histogram = {'one': 1, 'blue': 1, 'two': 1, 'fish': 4, 'red': 1} '''
 
 # READ from this FILE
+# file = open("../sample_text.txt")
 def get_word_list(file_name = '../sample_text.txt'):
     '''Gets words, gets rid of nonsense'''
     file = open(file_name,'r')
@@ -17,7 +21,7 @@ def get_word_list(file_name = '../sample_text.txt'):
 
     return words
 
-# HISTOGRAM FUNCTION
+# DICTIONARY HISTOGRAM
 def dict_histogram(list):
     '''
     Returns unique values and the

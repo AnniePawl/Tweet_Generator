@@ -1,13 +1,12 @@
-# LISTS OF LISTS
-"""
-Results should look like this:</br>
-histogram = [['one', 1], ['fish', 4], ['two', 1], ['red', 1], ['blue', 1]]
-"""
+# TUPLE HISTOGRAM
+# Tuple is a sequence of Immutable objects
 
-# READ from this FILE
-# file = open("../words.txt")
+# Results should look like this:
+''' histogram = [('one', 1), ('fish', 4), ('two', 1), ('red', 1), ('blue', 1)] '''
+
 
 # READ FROM THIS FILE
+# file = open("../sample_text.txt")
 def get_word_list(file_name = '../sample_text.txt'):
     '''Gets words, gets rid of nonsense'''
     file = open(file_name,'r')
@@ -24,6 +23,7 @@ def get_word_list(file_name = '../sample_text.txt'):
     return words
 
 
+# TUPLE HISTOGRAM
 def list_of_tuples_hist(list_of_words):
     lot = []
 
@@ -41,7 +41,6 @@ def list_of_tuples_hist(list_of_words):
 
     print(lot)
     return lot
-
 
 if __name__ == '__main__':
     list_of_tuples_hist(get_word_list())
