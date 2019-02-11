@@ -45,3 +45,16 @@ def stochastic_word(prob_dict):
     cumulitive_probability += prob_dict[word]
     if cumulitive_probability > random_point:
       return(word)
+
+
+# TEST FUNCTION
+def test(prob_dict, num_generations=100):
+    ''' iterates 100 times to test random sampling'''
+    generations = [stochastic_word(prob_dict)for _ in range(num_generations)]
+    # Get historgram for the generations.
+    gen_hist = histogram(generations)
+    gen_prob = probability_dict(gen_hist)
+
+    print("COMPARISON: %s NUM TRIALS" % num_generations)
+    print(prob_dict)
+    print(gen_prob)
