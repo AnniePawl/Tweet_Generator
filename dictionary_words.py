@@ -1,29 +1,27 @@
+# DICTIONARY WORDS
+    # All hardcoded parameters
+    # Program accepts one argument (number of words)
+    # Returns random sentence (does not have to make grammatical sense)
+
 import sys
 import random
 
-# Program only accepts one arguemnt
-# All parameters are hardcoded
-# Sentences don't have to make grammatical sense
-# Word selection is random
+# Read from this file
+file = open("sample_text.txt")
 
-# Read the file
-file = open("words.txt")
-
-# Select random words and store in a data type
+# Select Random Words, Split, and Store in a Data Type
 list_of_words = file.read().split(" ")
-randomWords = random.choices(list_of_words, k = 6)
+# Specify number of words you want from sample
+random_words = random.choices(list_of_words, k = 6)
 
-# Don't forget to close file! If you don't use with open()...
-file.close()
-# Put num of words together
-print(list_of_words)
 
-# Print words in a sentence
-print(' '.join(randomWords))
+# Form Sentence
+random_sentence = ' '.join(random_words)
+print(random_sentence)
 
 
 
-# ANOTHER WAY
+# ANOTHER WAY 
 # Word_Count=input("Please enter a number")
 # word_list = []
 #

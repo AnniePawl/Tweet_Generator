@@ -1,4 +1,7 @@
-# SIMPLE STOCHASTIC SAMPLING
+# SIMPLE STOCHASTIC SAMPLING SITUATION
+    # Sample Words by Frequency
+    # Test Relative Probabilities
+
 import random
 
 phrase = "one fish two fish red fish blue fish"
