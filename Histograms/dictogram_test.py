@@ -1,7 +1,7 @@
 #!python
-
 from dictogram import Dictogram
 import unittest
+
 # Python 2 and 3 compatibility: unittest module renamed this assertion method
 if not hasattr(unittest.TestCase, 'assertCountEqual'):
     unittest.TestCase.assertCountEqual = unittest.TestCase.assertItemsEqual

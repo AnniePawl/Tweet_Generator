@@ -2,7 +2,7 @@
 # Key-value pairs, unordered, changeable, indexed
 
 # Results should look like this:
- ''' histogram = {'one': 1, 'blue': 1, 'two': 1, 'fish': 4, 'red': 1} '''
+''' histogram = {'one': 1, 'blue': 1, 'two': 1, 'fish': 4, 'red': 1} '''
 
 # READ from this FILE
 # file = open("../sample_text.txt")

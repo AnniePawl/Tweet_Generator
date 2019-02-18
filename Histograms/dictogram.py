@@ -1,5 +1,5 @@
 from __future__ import division, print_function  # Python 2 and 3 compatibility
-
+from histo_dict import dict_histogram
 
 class Dictogram(dict):
     """Dictogram is a histogram implemented as a subclass of the dict type."""
@@ -15,14 +15,24 @@ class Dictogram(dict):
             for word in word_list:
                 self.add_count(word)
 
+
     def add_count(self, word, count=1):
         """Increase frequency count of given word by given count amount."""
-        # TODO: Increase word frequency by count
+        self.tokens = 1
+        if word in self:
+            self[word] += 1
+            print(word)
+        else:
+            self[word] = 1
+            print(word)
+            self.types += 1
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-        # TODO: Retrieve word frequency count
-
+        if word in self:
+            return self[word]
+        else:
+            return 0
 
 def print_histogram(word_list):
     print('word list: {}'.format(word_list))
