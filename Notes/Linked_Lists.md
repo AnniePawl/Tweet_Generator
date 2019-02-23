@@ -1,4 +1,4 @@
-# Linked Lists
+# Linked Lists Notes
 A linked list is a linear data structure where each element is a separate object
     - Link list objects are not stored in contiguous order
     - A collection nodes, which together represent a sequence
@@ -9,7 +9,7 @@ A linked list is a linear data structure where each element is a separate object
     - Entry point is called "head"
     - Last node is called "tail"
     - Can contain almost all datatypes
-    - Can have unique and duplicate elements 
+    - Can have unique and duplicate elements
 
 ### Benefits
 - Can contain pretty much all data types

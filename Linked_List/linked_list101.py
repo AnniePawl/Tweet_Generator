@@ -10,7 +10,7 @@ class SLinkedList:
     def __init__(self):
         self.headval = None
 
-# Print Linked List Method
+# Print Linked List
     def listprint(self):
         printval = self.headval
     # Check to see if there's more
@@ -46,6 +46,29 @@ class SLinkedList:
         NewNode.nextval = middle_node.nextval
         middle_node.nextval = NewNode
 
+    # DELETING a Node
+    def RemoveNode(self, Removekey):
+        HeadVal = self.head
+
+        if (HeadVal is not None):
+            if(HeadVal.data == Removekey):
+                self.head = HeadVal.next
+                HeadVal = None
+                return
+
+        while (HeadVal is not None):
+            if HeadVal.data == Removekey:
+                break
+            prev = HeadVal
+            HeadVal = HeadVal.next
+
+        if (HeadVal == None):
+            return
+
+        prev.next = HeadVal.next
+
+        HeadVal = None
+
 
 # List Variable
 list = SLinkedList()
@@ -69,5 +92,18 @@ list.InBetween(list.headval.nextval,"Fri")
 list.AtEnd("Thurs")
 
 
+# Example Interface
+mylist = LinkedList()
+mylist.append('a')
+mylist.append('b')
+mylist.append('c')
+
+mylist.head.data  # => 'a'
+mylist.tail.data  # => 'c'
+mylist.find(lambda data: data > 'b')  # => 'c'
+mylist.delete('a')
+mylist.head.data  # => 'b'
+
 # Print List!
+
 list.listprint()

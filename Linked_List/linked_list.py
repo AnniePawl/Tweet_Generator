@@ -1,3 +1,10 @@
+# Implement Length Method
+# Implement Append Method
+# Implement Prepend Method
+# Implement Find Method
+# Implement Delete Method
+# Run and Pass all Unit Tests
+
 class Node(object):
 
     def __init__(self, data):
