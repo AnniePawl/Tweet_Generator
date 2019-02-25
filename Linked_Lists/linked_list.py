@@ -3,6 +3,7 @@
 # Implement Prepend Method
 # Implement Find Method
 # Implement Delete Method
+# Implement Replace Method
 # Run and Pass all Unit Tests
 
 class Node(object):
@@ -105,6 +106,16 @@ class LinkedList(object):
         if curr_node is None:
             return None
         return curr_node.data
+
+    # Still needs to be tested
+    def replace(old_item, new_item):
+        """ Replaces old item with new item without creating a new node"""
+        curr_node = self.head
+        while curr_node is not None:
+            if curr_node.data == old_item:
+                current_node.data = new_item
+
+
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
