@@ -1,6 +1,13 @@
+#  Can set any type of value to associate it w/ a key
+#  Can get the value assocaite w/ a key
+#  Can delete a key and its associated value
+#  Can test if the has table contains a key
+#  Can get a list of all keys in the hash table
+#  Get get a list of all values in the hash table
+#  Can get a list of all entries (key-value pairs)
+#  Can calculate the length of the hash table
 
 from linkedlist import LinkedList
-
 
 class HashTable(object):
 
