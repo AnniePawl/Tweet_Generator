@@ -1,3 +1,5 @@
+#  Only uses list and tuple collection types
+#  Must have O(log n) lookup time
 #  Can set any type of value to associate it w/ a key
 #  Can get the value assocaite w/ a key
 #  Can delete a key and its associated value
@@ -7,7 +9,7 @@
 #  Can get a list of all entries (key-value pairs)
 #  Can calculate the length of the hash table
 
-from linkedlist import LinkedList
+from linked_list import LinkedList
 
 class HashTable(object):
 
@@ -32,7 +34,7 @@ class HashTable(object):
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: O(n), will iterate over every key"""
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
@@ -43,8 +45,14 @@ class HashTable(object):
     def values(self):
         """Return a list of all values in this hash table.
         TODO: Running time: O(???) Why and under what conditions?"""
+        all_values = []
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
+
+        for bucket in self.buckets:
+            for key, value in bucket.items():
+                all_values.append(value)
+        return all_values
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
@@ -60,6 +68,11 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
+        counter = 0
+        for bucket in self.buckets:
+            length = bucket.length()
+            counter += length
+        return counter
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
@@ -67,14 +80,24 @@ class HashTable(object):
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
 
+        index = self.b
+
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        Running time: O(1), hash tables have constant lookup time"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, return value associated with given key
         # TODO: Otherwise, raise error to tell user get failed
-        # Hint: raise KeyError('Key not found: {}'.format(key))
+
+        index = self._bucket_index(key) # O(1) to calc index
+        bucket = self.buckets[index] # O(1) to index an array
+
+        for item in self.buckets[index].iterate():
+            if item[0] == key:
+                return item[1] # entry = (key, value)
+            else:
+                raise KeyError('Key not found: {}'.format(key))
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
@@ -83,6 +106,20 @@ class HashTable(object):
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, update value associated with given key
         # TODO: Otherwise, insert given key-value entry into bucket
+        index = self._bucket_index(key) # O(1) to calc index
+        bucket = self.buckets[index] # O(1) to index an array
+
+        entry = bucket.find(lambda key_value: key_value[0] ==key)
+        # O(l) worst case of find
+
+        if entry is not None:
+            # bucket.delete(entry) #O(l)
+            entry2 = (key,value)
+            bucket.replace(entry, entry2)
+
+            entry = (key, value) #O(1)
+            bucket.append(entry) #O(1)
+
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
