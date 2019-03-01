@@ -35,11 +35,11 @@ A linked list is a linear data structure where each element is a separate object
 - Insert or delete element at the end O(n)
 
 ### The Process
-a. Dynamically allocate space for a new node
-b. Check to make sure we didn't run out of memory
-c. Initialize node's va1 field
-d. Initialize node's next field
-e. Return pointer to newly created node
+a. Dynamically allocate space for a new node </br>
+b. Check to make sure we didn't run out of memory </br>
+c. Initialize node's va1 field </br>
+d. Initialize node's next field </br>
+e. Return pointer to newly created node </br>
 
 
 ### Grocery Store Example
@@ -51,7 +51,5 @@ In this notation, the [] denotes the linked list, each () represents a node, and
 - The node with item "beans" is the next node after the head
 - The node with item "oil" is the tail of the linked list
 - There are 4 nodes in this linked list
-</br>
-Since nodes do not have indexed elements, we don't have to shift anything around, just change reference on a single node</br>
 
-To add a node to the end of the list, just create a new node and add a reference to it from the last node, the tail of the list. To add a node to the beginning of the list, just create a new node and make a reference to the head.  
+Nodes don't have indexed elements, so we don't have to shift anything around, just change reference on a single node. To add a node to the end of the list, just create a new node and add a reference to it from the last node, the tail of the list. To add a node to the beginning of the list, just create a new node and make a reference to the head.  

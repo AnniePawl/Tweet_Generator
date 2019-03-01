@@ -1,13 +1,14 @@
-#  Only uses list and tuple collection types
-#  Must have O(log n) lookup time
-#  Can set any type of value to associate it w/ a key
-#  Can get the value assocaite w/ a key
-#  Can delete a key and its associated value
-#  Can test if the has table contains a key
-#  Can get a list of all keys in the hash table
-#  Get get a list of all values in the hash table
-#  Can get a list of all entries (key-value pairs)
-#  Can calculate the length of the hash table
+# GAME PLAN
+    #  Only uses list and tuple collection types
+    #  Must have O(log n) lookup time
+    #  Can set any type of value to associate it w/ a key
+    #  Can get the value assocaite w/ a key
+    #  Can delete a key and its associated value
+    #  Can test if the has table contains a key
+    #  Can get a list of all keys in the hash table
+    #  Get get a list of all values in the hash table
+    #  Can get a list of all entries (key-value pairs)
+    #  Can calculate the length of the hash table
 
 from linked_list import LinkedList
 
@@ -117,7 +118,7 @@ class HashTable(object):
             entry2 = (key,value)
             bucket.replace(entry, entry2)
 
-            entry = (key, value) #O(1)
+            entry = (key, value) #O(1)di
             bucket.append(entry) #O(1)
 
 

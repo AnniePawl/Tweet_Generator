@@ -7,9 +7,10 @@ For longer programs, it's convenient to prepare the input for the interpreter. Y
 ## Importing Modules
 Import statements are executed in two steps:</br>
     - **Find a module**, and initialize if necessary </br>
-    - **Define name(s)** in local namespace.
+    - **Define name(s)** in local namespace. </br>
+
 It's customary to place all import statements _at the beginning of a module or script_. Imported modules names are placed in the importing module's global symbol table.</br>
-- *Symbol Tables:*
+- **Symbol Tables:**
 Each module has its own private symbol table, which is used as the global symbol table by all functions defined in the module. The author of a module can use global variables in the module w/o worrying about accidental clashes with a user's global variables. </br>
 
 There are variations of import statements.</br>
@@ -17,14 +18,14 @@ There are variations of import statements.</br>
 - Imports _all_ names that a modules defines `from fibo import *`
 - Name following 'as' is bound directly to imported module `import fibo as fib`
 
-## Executing Module's as Scripts
+## Executing Modules as Scripts
 When you run a Python module with `python fibo.py <arguments>` the code in the module will be executed, just as if you imported it, but with the __name__ set to "__main__". That means that by adding this code at the end of your module:
 
 ```if __name__ == "__main__":
     import sys
     fib(int(sys.argv[1]))
 ```
-you can make the file usable as a script as well as an importable module, because the code that parses the command line only runs if the module is executed as the “main” file:
+You can make the file usable as a script as well as an importable module, because the code that parses the command line only runs if the module is executed as the “main” file:
 
 ```$ python fibo.py 50
 0 1 1 2 3 5 8 13 21 34
