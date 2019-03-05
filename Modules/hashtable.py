@@ -12,7 +12,6 @@
 
 from linked_list import LinkedList
 
-
 class HashTable(object):
 
     def __init__(self, init_size=8):
@@ -82,7 +81,6 @@ class HashTable(object):
         for bucket in self.buckets: # Loop thru buckets
             length = bucket.length()
             counter += length # Count key-value entries in each bucket
-            print('Bucket length is: {}'.format(key))
         return counter
 
 
@@ -92,8 +90,9 @@ class HashTable(object):
         """
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
-
-        index = self.b
+        index = self._bucket_index(key)
+        bucket = self.buckets[index]
+        return bucket.find(lambda item: item[0] == key) != None
 
     def get(self, key):
         """Return the value associated with key, or raise KeyError.
@@ -105,13 +104,12 @@ class HashTable(object):
         # TODO: Otherwise, raise error to tell user get failed
 
         index = self._bucket_index(key) # O(1) to calc index
-        bucket = self.buckets[index] # O(1) to index an array
+        item = self.buckets[index].find(lambda item: item[0] == key)
+        if item != None:
+            return item[1]
+        else:
+            raise KeyError('Key not found: {}'.format(key))
 
-        for item in self.buckets[index].iterate():
-            if item[0] == key:
-                return item[1] # entry = (key, value)
-            else:
-                raise KeyError('Key not found: {}'.format(key))
 
     def set(self, key, value):
         """Insert or update the given key with associated value.
@@ -121,19 +119,20 @@ class HashTable(object):
         # TODO: If found, update value associated with given key
         # TODO: Otherwise, insert given key-value entry into bucket
         index = self._bucket_index(key) # O(1) to calc index
-        bucket = self.buckets[index] # O(1) to index an array
+        found_it = self.buckets[index].find(lambda item: item[0] == key)
 
-        entry = bucket.find(lambda key_value: key_value[0] ==key)
-        # O(l) worst case of find
+        if found_it:
+            self.buckets[index].delete(found_it)
+        self.buckets[index].append((key,value))
 
-        if entry is not None:
-            # bucket.delete(entry) #O(l)
-            entry2 = (key,value)
-            bucket.replace(entry, entry2)
-
-            entry = (key, value) #O(1)di
-            bucket.append(entry) #O(1)
-
+        # if entry is not None:
+        #     # bucket.delete(entry) #O(l)
+        #     entry2 = (key,value)
+        #     bucket.replace(entry, entry2)
+        #
+        #     entry = (key, value) #O(1)di
+        #     bucket.append(entry) #O(1)
+        #
 
     def delete(self, key):
         """Delete given key from hash table, or raise KeyError.
@@ -143,8 +142,15 @@ class HashTable(object):
         # TODO: If found, delete entry associated with given key
         # TODO: Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
+        index = self._bucket_index(key) # O(1) index
+        found_it = self.buckets[index].find(lambda item: item[0] == key) #O(n), Find
+        if found_it:
+            self.bucket[index].delete(found_it) # O(l) b/c l entries in the list
+        else:
+            raise KeyError('Key not found {}'.format(key))
 
 
+# TEST METHOD
 def test_hash_table():
     ht = HashTable()
     print('hash table: {}'.format(ht))
