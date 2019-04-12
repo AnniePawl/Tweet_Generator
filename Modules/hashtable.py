@@ -75,12 +75,11 @@ class HashTable(object):
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
-        Run time: O(n), must check all buckets?
+        Run time: O(n) O(b+l), iterate over all buckets?
         """
         counter = 0
-        for bucket in self.buckets: # Loop thru buckets
-            length = bucket.length()
-            counter += length # Count key-value entries in each bucket
+        for bucket in self.buckets: # b(buckets)iterations of loop
+            counter += bucket.length # Count key-value entries in each bucket O(l),operation just on one bucket
         return counter
 
 
